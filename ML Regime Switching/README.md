@@ -1,5 +1,9 @@
 
-Part 1 Data Description
+
+
+# Part 1 Data Description
+
+Covers equity, bond, FX, commodity, and others.
 
 |Type|Product|DataColumns|Source|Status|Owner|TimeRange|
 |-|-|-|-|-|-|-|
@@ -7,6 +11,9 @@ Part 1 Data Description
 |Equity|SP500 Futures|Price_SNPFu,Open_SNPFu,High_SNPFu,Low_SNPFu,Vol._SNPFu,Change_SNPFu|investing.com|Done|JiaHang|1997/9/10-2020/6/19|
 |Equity|SP500 returns|vwretd,vwretx,ewretd,ewretx,totval,sprtrn|wrds|Done|JiaHang|1926/1/2-2020/3/31|
 |Equity|SPY|Open_SPY,High_SPY,Low_SPY,Close_SPY,Adj Close_SPY,Volume_SPY|finance.yahoo.com|Done|JiaHang|1993/1/29-2020/6/19|
+|Equity|JP Nikkei225(N225)|Open,High,Low,Close,Adj Close,Volume|finance.yahoo.com|Done|JiaHang|1965/1/5-2020/6/19|
+|Equity|UK FTSE100|open, close, high, low, vol, change|investing.com|Done|JiaHang|2001/1/3-2020/6/19|
+|Equity|HK Hang Seng(HSI)|Open,High,Low,Close,Adj Close,Volume|finance.yahoo.com|Done|JiaHang|1986/12/31-2020/6/19|
 |Bond|2Y Treasury Yield|open, close, high, low|investing.com|Done|Yudong|1988/02/26-2020/06/19|
 |Bond|10Y Treasury Yield|open, close, high, low|investing.com|Done|Yudong|1988/02/26-2020/06/19|
 |Bond|30Y Treasury Yield|open, close, high, low|investing.com|Done|Yudong|1988/02/26-2020/06/19|
@@ -49,7 +56,42 @@ Part 1 Data Description
 |Others|VIX|Price_VIX,Open_VIX,High_VIX,Low_VIX	Change_VIX|finance.yahoo.com|Done|JiaHang|1990/1/3-2020/06/19|
 |Others|FF5|Mkt-RF,SMB,HML,RMW,CMA,RF|finance.yahoo.com|Done|JiaHang|1963/7/1-2020/4/30|
 
+# Part 2 Feature Engineering
+
+
+# Part 3 Building Models
+
+Grid search to find parameters
+
+Different Kinds of Model Structure:
+* One model for all period, direct train test split.
+* Rolling model, train at every time step by looking back for several days.
+
+## Decision Tree
+Parameters to tune:
+
+
+## Multi-class Logistic Regression(SVM as kernal)
+Parameters to tune:
+
+## Other?
 
 
 
+# Part 4 Evaluation
 
+## Classification accuracy
+F1 Score
+
+AUC
+
+## Profitability
+
+For a long only portfolio, it's important to look at precision rate of high returns. 
+For a short only, precision rate of negative return is important.
+
+# Part 5 Improvement
+
+Adjust cost function
+
+We are sensitive to classification accuracy at sides, thus should put more weight on those ones.
